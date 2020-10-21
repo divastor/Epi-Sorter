@@ -2,7 +2,7 @@ import re, os
 from sys import argv
 
 j = 1
-n = input("Number of Episodes: ")
+n = int(input("Number of Episodes: "))
 if n < 0:
     n = -n
 while j <= n:
@@ -21,14 +21,14 @@ while j <= n:
     
 filenames = os.listdir(os.getcwd())
 # - Get every file in directory
-print filenames
+print(filenames)
 for fn in filenames:
 # - Check every file serially
     episode = re.findall(r'E\d{1,2}', fn, re.I)
     season = re.findall(r'S\d{1,2}', fn, re.I) #not that needful stuff
     if fn.lower() == "subtitles" or fn.lower() == "subs" or fn.lower() == "subtitle" or fn.lower() == "sub":
         fn_filenames = os.listdir(os.getcwd()+"\\"+fn)
-        print fn_filenames
+        print(fn_filenames)
         for fnsfn in fn_filenames:
             try:
                 episode = re.findall(r'E\d{1,2}', fnsfn, re.I)
